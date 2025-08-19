@@ -1,0 +1,17 @@
+# netlify.toml
+[build]
+  # Commande pour builder ton projet
+  command = "npm run build"
+  
+  # Dossier à publier après le build
+  publish = "build"
+
+# Configurer l'environnement Node.js si nécessaire
+[build.environment]
+  NODE_VERSION = "18"
+
+# Redirection pour React Router (routes internes)
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
