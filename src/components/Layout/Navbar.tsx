@@ -1,15 +1,15 @@
-import { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { Button } from '@/components/ui/button';
-import { useLanguage } from '@/contexts/LanguageContext';
-import { useTheme } from '@/contexts/ThemeContext';
-import { Menu, X, Sun, Moon, Globe } from 'lucide-react';
+import { useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/LanguageContext";
+import { useTheme } from "@/contexts/ThemeContext";
+import { Menu, X, Sun, Moon, Globe } from "lucide-react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
+} from "@/components/ui/dropdown-menu";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -18,11 +18,11 @@ const Navbar = () => {
   const location = useLocation();
 
   const navLinks = [
-    { path: '/', label: t('nav.home') },
-    { path: '/menu', label: t('nav.menu') },
-    { path: '/reservations', label: t('nav.reservations') },
-    { path: '/about', label: t('nav.about') },
-    { path: '/contact', label: t('nav.contact') },
+    { path: "/", label: t("nav.home") },
+    { path: "/menu", label: t("nav.menu") },
+    { path: "/reservations", label: t("nav.reservations") },
+    { path: "/about", label: t("nav.about") },
+    { path: "/contact", label: t("nav.contact") },
   ];
 
   const isActive = (path: string) => location.pathname === path;
@@ -33,11 +33,22 @@ const Navbar = () => {
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <div className="w-8 h-8 gradient-primary rounded-full flex items-center justify-center">
-              <span className="text-white font-bold text-sm">SM</span>
+            <div
+              style={{
+                width: "3.5rem",
+                height: "3.5rem",
+                borderRadius: "50%",
+                overflow: "hidden",
+              }}
+            >
+              {/* <span className="text-white font-bold text-sm">SM</span> */}
+              <img
+                src="/public/logo.png"
+                className="text-white font-bold text-sm"
+              />
             </div>
             <span className="text-xl font-bold text-heading text-foreground">
-              {t('hero.title')}
+              {t("hero.title")}
             </span>
           </Link>
 
@@ -49,8 +60,8 @@ const Navbar = () => {
                 to={link.path}
                 className={`text-sm font-medium transition-smooth hover:text-primary ${
                   isActive(link.path)
-                    ? 'text-primary border-b-2 border-primary'
-                    : 'text-muted-foreground'
+                    ? "text-primary border-b-2 border-primary"
+                    : "text-muted-foreground"
                 }`}
               >
                 {link.label}
@@ -69,10 +80,10 @@ const Navbar = () => {
                 </Button>
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <DropdownMenuItem onClick={() => setLanguage('fr')}>
+                <DropdownMenuItem onClick={() => setLanguage("fr")}>
                   Français
                 </DropdownMenuItem>
-                <DropdownMenuItem onClick={() => setLanguage('en')}>
+                <DropdownMenuItem onClick={() => setLanguage("en")}>
                   English
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -80,7 +91,7 @@ const Navbar = () => {
 
             {/* Theme Toggle */}
             <Button variant="ghost" size="sm" onClick={toggleTheme}>
-              {theme === 'light' ? (
+              {theme === "light" ? (
                 <Moon className="w-4 h-4" />
               ) : (
                 <Sun className="w-4 h-4" />
@@ -88,8 +99,11 @@ const Navbar = () => {
             </Button>
 
             {/* Order Button */}
-            <Button asChild className="gradient-primary shadow-soft hover:shadow-glow transition-spring">
-              <Link to="/menu">{t('nav.order')}</Link>
+            <Button
+              asChild
+              className="gradient-primary shadow-soft hover:shadow-glow transition-spring"
+            >
+              <Link to="/menu">{t("nav.order")}</Link>
             </Button>
           </div>
 
@@ -113,14 +127,16 @@ const Navbar = () => {
                   key={link.path}
                   to={link.path}
                   className={`text-sm font-medium transition-smooth hover:text-primary ${
-                    isActive(link.path) ? 'text-primary' : 'text-muted-foreground'
+                    isActive(link.path)
+                      ? "text-primary"
+                      : "text-muted-foreground"
                   }`}
                   onClick={() => setIsOpen(false)}
                 >
                   {link.label}
                 </Link>
               ))}
-              
+
               <div className="flex items-center space-x-4 pt-4 border-t border-border">
                 {/* Mobile Language Switcher */}
                 <DropdownMenu>
@@ -131,10 +147,10 @@ const Navbar = () => {
                     </Button>
                   </DropdownMenuTrigger>
                   <DropdownMenuContent>
-                    <DropdownMenuItem onClick={() => setLanguage('fr')}>
+                    <DropdownMenuItem onClick={() => setLanguage("fr")}>
                       Français
                     </DropdownMenuItem>
-                    <DropdownMenuItem onClick={() => setLanguage('en')}>
+                    <DropdownMenuItem onClick={() => setLanguage("en")}>
                       English
                     </DropdownMenuItem>
                   </DropdownMenuContent>
@@ -142,7 +158,7 @@ const Navbar = () => {
 
                 {/* Mobile Theme Toggle */}
                 <Button variant="ghost" size="sm" onClick={toggleTheme}>
-                  {theme === 'light' ? (
+                  {theme === "light" ? (
                     <Moon className="w-4 h-4" />
                   ) : (
                     <Sun className="w-4 h-4" />
@@ -152,7 +168,7 @@ const Navbar = () => {
 
               <Button asChild className="gradient-primary shadow-soft mt-4">
                 <Link to="/menu" onClick={() => setIsOpen(false)}>
-                  {t('nav.order')}
+                  {t("nav.order")}
                 </Link>
               </Button>
             </div>

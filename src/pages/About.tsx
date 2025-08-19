@@ -243,7 +243,7 @@ const About = () => {
           </div>
 
           <div className="max-w-4xl mx-auto">
-            <Card className="shadow-elegant gradient-warm border-border/50">
+            <Card className="shadow-elegant gradient-blue border-border/50">
               <CardContent className="p-12">
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
                   <div>

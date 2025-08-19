@@ -66,7 +66,7 @@ const Footer = () => {
                 <div>
                   <p className="text-muted-foreground text-sm">
                     123 Rue de la Gastronomie<br />
-                    75001 Paris, France
+                    75001 Paris, Cotonou
                   </p>
                 </div>
               </div>
@@ -76,7 +76,7 @@ const Footer = () => {
               </div>
               <div className="flex items-center space-x-3">
                 <Mail className="w-5 h-5 text-primary" />
-                <p className="text-muted-foreground text-sm">contact@saveurmoderne.fr</p>
+                <p className="text-muted-foreground text-sm">contact@Skyline.fr</p>
               </div>
             </div>
           </div>
@@ -97,7 +97,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border mt-8 pt-8 text-center text-muted-foreground text-sm">
-          <p>&copy; 2024 Saveur Moderne. Tous droits réservés.</p>
+          <p>&copy; 2024 Skyline. Tous droits réservés.</p>
         </div>
       </div>
     </footer>
